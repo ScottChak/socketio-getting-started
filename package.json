@@ -1,0 +1,17 @@
+{
+  "name": "socketio-getting-started",
+  "version": "1.0.0",
+  "author": "Ewan \"ScottChak\" BURNS",
+  "main": "index.js",
+  "scripts": {
+    "debug": "nodemon",
+    "dev": "npm run debug"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "live-server": "^1.2.1",
+    "nodemon": "^1.18.10",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {}
+}
