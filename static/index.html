@@ -66,7 +66,7 @@
                 <div class="input-group">
                   <input type="text" class="form-control" ng-disabled="!connected" ng-model="messageContent" />
                   <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" ng-disabled="!connected" ng-click="ctrl.sendMessage()">
+                    <button class="btn btn-primary" type="button" ng-disabled="!connected || messageContent.length === 0" ng-click="ctrl.sendMessage()">
                       Send
                     </button>
                   </div>
