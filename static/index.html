@@ -9,27 +9,14 @@
     <meta name="author" content="ScottChak" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <style>
-      .messageWrapper {
-        height: 512px;
-        overflow-y: scroll;
-        margin: 16px 0px;
-        padding: 0px 8px;
-      }
-
-      .messageWrapper ul {
-        margin: 0px;
-        padding: 0px;
-        list-style-type: none;
-      }
-    </style>
-
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
 
   <body>
@@ -109,67 +96,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js" crossorigin="anonymous"></script>
 
-    <script>
-      var app = angular.module("socketioApp", []);
-
-      app.controller("HomeController", function($scope) {
-        $scope.connected = false;
-
-        $scope.messages = [];
-
-        $scope.username = "";
-        $scope.messageContent = "";
-
-        var ctrl = this;
-
-        var isConnected = function() {
-          //  EBU: this was more complex earlier on
-          return $scope.connected;
-        };
-
-        ctrl.connect = function() {
-          if ($scope.username.length > 0) {
-            socket.emit("connectUser", $scope.username);
-            $scope.connected = true;
-          }
-        };
-
-        ctrl.disconnect = function() {
-          if (isConnected()) {
-            socket.emit("disconnectUser", $scope.username);
-            $scope.connected = false;
-            $scope.messageContent = "";
-          }
-        };
-
-        ctrl.toggleConnect = function() {
-          if ($scope.connected) {
-            ctrl.disconnect();
-          } else {
-            ctrl.connect();
-          }
-        };
-
-        ctrl.sendMessage = function() {
-          if (isConnected()) {
-            socket.emit("sendMessage", { username: $scope.username, content: $scope.messageContent });
-            $scope.messageContent = "";
-          }
-        };
-
-        ctrl.addMessage = function(message) {
-          $scope.messages.push(message);
-
-          //  EBU: Why isn't this automatic ?
-          $scope.$apply();
-        };
-
-        var socket = io("http://localhost:8082");
-
-        socket.on("receiveMessage", function(message) {
-          ctrl.addMessage(message);
-        });
-      });
-    </script>
+    <script src="./scripts/app.js"></script>
   </body>
 </html>

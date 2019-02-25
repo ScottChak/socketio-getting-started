@@ -1,0 +1,12 @@
+.messageWrapper {
+  height: 512px;
+  overflow-y: scroll;
+  margin: 16px 0px;
+  padding: 0px 8px;
+}
+
+.messageWrapper ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
