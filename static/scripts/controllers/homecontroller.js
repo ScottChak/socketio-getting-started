@@ -1,7 +1,8 @@
 app.controller("HomeController", [
   "$scope",
   "ChatService",
-  function($scope, chatService) {
+  "PhaserService",
+  function($scope, chatService, phaserService) {
     $scope.messages = [];
 
     $scope.connected = false;
@@ -33,5 +34,7 @@ app.controller("HomeController", [
     ctrl.addMessage = function(message) {
       $scope.messages.push(message);
     };
+
+    phaserService.start();
   }
 ]);

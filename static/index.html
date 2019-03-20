@@ -66,7 +66,12 @@
                 <div class="input-group">
                   <input type="text" class="form-control" ng-disabled="!connected" ng-model="messageContent" />
                   <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" ng-disabled="!connected || messageContent.length === 0" ng-click="ctrl.sendMessage()">
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      ng-disabled="!connected || messageContent.length === 0"
+                      ng-click="ctrl.sendMessage()"
+                    >
                       Send
                     </button>
                   </div>
@@ -74,6 +79,8 @@
               </div>
             </div>
           </div>
+
+          <div class="col-8" id="PhaserContainer"></div>
         </div>
       </div>
     </div>
@@ -95,9 +102,11 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.16.2/phaser.min.js" crossorigin="anonymous"></script>
 
     <script src="./scripts/app.js"></script>
     <script src="./scripts/services/chatservice.js"></script>
+    <script src="./scripts/services/phaserservice.js"></script>
     <script src="./scripts/controllers/homecontroller.js"></script>
   </body>
 </html>

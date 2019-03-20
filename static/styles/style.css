@@ -1,7 +1,10 @@
+.row {
+  padding-bottom: 8px;
+}
+
 .messageWrapper {
   height: 512px;
   overflow-y: scroll;
-  margin: 16px 0px;
   padding: 0px 8px;
 }
 
