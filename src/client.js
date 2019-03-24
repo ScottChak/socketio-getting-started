@@ -1,8 +1,8 @@
 let liveServer = require("live-server");
 
-function StartClient() {
-  let port = 8081;
+let port = 8081;
 
+function Start() {
   let params = {
     port: port,
     root: "./static",
@@ -14,4 +14,4 @@ function StartClient() {
   liveServer.start(params);
 }
 
-module.exports = { Start: StartClient };
+module.exports = { Start };

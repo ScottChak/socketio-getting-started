@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">@</span>
+          </div>
+
+          <input type="text" class="form-control" ng-model="username" ng-readonly="connected" />
+
+          <div class="input-group-append">
+            <button
+              class="btn btn-primary"
+              type="button"
+              ng-disabled="username === undefined || username === ''"
+              ng-click="ctrl.toggleConnect()"
+            >
+              {{ connected ? "Disconnect" : "Connect" }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="messageWrapper border rounded">
+          <ul>
+            <li
+              ng-repeat="message in messages"
+              ng-class="{ 'text-right': message.message.username === username, 'text-center font-italic': message.message.username === undefined || message.message.username === '' }"
+            >
+              <strong ng-if="message.message.username">{{ message.message.username }}:</strong>
+              <span>{{ message.message.content }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="input-group">
+          <input type="text" class="form-control" ng-disabled="!connected" ng-model="messageContent" />
+          <div class="input-group-append">
+            <button
+              class="btn btn-primary"
+              type="button"
+              ng-disabled="!connected || messageContent.length === 0"
+              ng-click="ctrl.sendMessage()"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

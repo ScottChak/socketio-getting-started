@@ -21,68 +21,13 @@
 
   <body>
     <div class="container">
-      <div ng-controller="HomeController as ctrl">
-        <div class="row">
-          <div class="col-12">
-            <h1>Socket.io - Getting Started</h1>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-4">
-            <div class="row">
-              <div class="col-12">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
-                  </div>
-
-                  <input type="text" class="form-control" ng-model="username" ng-readonly="connected" />
-
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" ng-click="ctrl.toggleConnect()">
-                      {{ connected ? "Disconnect" : "Connect" }}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-12">
-                <div class="messageWrapper border rounded">
-                  <ul>
-                    <li ng-repeat="message in messages">
-                      <strong ng-if="message.username">{{ message.username }}:</strong>
-                      <span>{{ message.content }}</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-12">
-                <div class="input-group">
-                  <input type="text" class="form-control" ng-disabled="!connected" ng-model="messageContent" />
-                  <div class="input-group-append">
-                    <button
-                      class="btn btn-primary"
-                      type="button"
-                      ng-disabled="!connected || messageContent.length === 0"
-                      ng-click="ctrl.sendMessage()"
-                    >
-                      Send
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-8" id="PhaserContainer"></div>
+      <div class="row">
+        <div class="col-12">
+          <h1>Socket.io - Getting Started</h1>
         </div>
       </div>
+
+      <ui-view></ui-view>
     </div>
 
     <script
@@ -100,13 +45,15 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.min.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.16.2/phaser.min.js" crossorigin="anonymous"></script>
 
     <script src="./scripts/app.js"></script>
     <script src="./scripts/services/chatservice.js"></script>
-    <script src="./scripts/services/phaserservice.js"></script>
     <script src="./scripts/controllers/homecontroller.js"></script>
   </body>
 </html>
